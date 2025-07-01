@@ -1,0 +1,16 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - name: Build ityfuzz
+    init: |
+      rustup default nightly
+      rustup component add rust-src
+      cargo build
+    command: |
+      cargo watch -x run
+
+vscode:
+  extensions:
+    - rust-lang.rust-analyzer
+    - vadimcn.vscode-lldb
